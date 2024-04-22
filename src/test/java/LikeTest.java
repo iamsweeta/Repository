@@ -1,10 +1,15 @@
 import PageObject.LikePage;
 import PageObject.MainPage;
+import PageObject.UserPage;
 import org.junit.jupiter.api.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LikeTest extends BaseTest {
+    private static final Logger logger = LoggerFactory.getLogger(LikeTest.class);
     @Test
-    public void LikeMethod(){
+    public void likeMethod(){
+        logger.info("Начало теста likeMethod");
         MainPage mainPage = new MainPage();
         LikePage likePage = mainPage.goToLikePage();
         likePage.LikeOrUnlikePost();
@@ -12,7 +17,8 @@ public class LikeTest extends BaseTest {
     }
 
     @AfterAll
-    public static void Unlike(){
+    public static void unlike(){
+        logger.info("Начало after теста unlike");
         MainPage mainPage = new MainPage();
         LikePage likePage = mainPage.goToLikePage();
         likePage.LikeOrUnlikePost();
